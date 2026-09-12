@@ -1,46 +1,26 @@
 #include <iostream>
-
-// Подключил библиотеку iostream для работы с вводом и выводом данных
-
 using namespace std;
+// Открыл пространство имен std, что бы не писать его каждый раз.
 
-// Указал что буду использовать пространство имен std, чтобы не писать std:: перед cout и endl
-
-float side = 0.0; // Объявил переменную side типа float и присвоил ей значение 0.0
-
-struct Foo
+int main()
 {
-    int x;
-};   // <-- добавлена ;
+    double number = 0;
 
-int main() {
-	// Объявил функцию main, которая является точкой входа в программу
+    // Просим пользователя ввести число.
+    cout << "Input number: ";
 
-	cout << "Enter the side of the square: ";
+    // Проверяем правильность ввода.
+    if (!(cin >> number)) {
+        cout << "Error input!" << endl;
+        return 1;
+    }
+    else {
+        // Выводим введённое число.
+        cout << "Inputed number: " << number << endl;
 
-	if (!(cin >> side))
-		
-	{
+        // Вычисляем квадрат числа.
+        cout << "Square of number: " << number * number << endl;
+    }
 
-		// Проверил, что ввод корректный, если нет, то выводим сообщение об ошибке
-
-		cout << "Input error. Please enter a number." << endl;
-		return 1;
-	}
-
-	if (side <= 0)
-	{
-		// Проверил, что введенное число не отрицательное, если да, то выводим сообщение об ошибке
-		cout << "Input error. Please enter a positive number." << endl;
-		return 1;
-	}
-	else
-	{
-		// Если ввод корректный и число положительное, то вычисляем площадь квадрата и выводим результат
-			float area = side * side; // Вычислил площадь квадрата по формуле S = a^2
-			
-			cout << "The area of the square with side " << side << " is " << area << endl; // Вывел результат на экран
-
-	}	
-	return 0;
- }
+    return 0;
+}
